@@ -93,7 +93,7 @@ Biz bu projede kapsamlı bir sonuç analizi gerçekleştirdik. Aşağıda elde e
 
 ### Görsel Sonuçlar
 
-Biz eğitim sürecinin ve sonuçların görsel analizini şu grafiklerde sunuyoruz:
+Eğitim sürecinin ve sonuçların görsel analizini şu grafiklerde sunuyoruz:
 
 #### 1. Eğitim Geçmişi
 ![Eğitim Geçmişi](results/training_history.png)
@@ -109,7 +109,7 @@ Biz eğitim sürecinin ve sonuçların görsel analizini şu grafiklerde sunuyor
 
 ### Detaylı Sonuç Dosyaları
 
-Biz kapsamlı sonuç analizi için şu dosyaları oluşturduk:
+Kapsamlı sonuç analizi için şu dosyaları oluşturduk:
 
 1. **`results/training_results_YYYYMMDD_HHMMSS.json`**
    - Tüm eğitim parametreleri ve sonuçları (JSON formatında)
@@ -180,7 +180,7 @@ pip install -r requirements.txt
 
 ###  Modeli Eğitme
 
-Biz modeli eğitmek için şu komutu kullanıyoruz:
+Modeli eğitmek için şu komutu kullanabilirsiniz.
 
 ```bash
 python turkish_news_classifier.py
