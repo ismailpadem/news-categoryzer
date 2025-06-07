@@ -40,11 +40,11 @@ Bu projede, Türkçe haber metinlerini otomatik olarak kategorilere sınıfland�
 - **Kayıp Fonksiyonu**: CrossEntropyLoss
 
 ### Test Ortamı ve Donanım
-- **İşletim Sistemi**: Windows 11
-- **Python Sürümü**: 3.12
-- **GPU Desteği**: CUDA destekli GPU (Nvidia RTX 4060 Mobile 140W)
-- **RAM**: 16GB
-- **CPU**: Intel i7-13650HX
+- **İşletim Sistemi**: Windows 10
+- **Python Sürümü**: 3.8+
+- **GPU Desteği**: CUDA destekli GPU (mevcut ise)
+- **RAM**: Minimum 8GB önerilir
+- **Depolama**: Minimum 2GB boş alan
 
 ### Proje Yapısı
 ```
