@@ -158,7 +158,7 @@ pathlib
 
 1. **Depoyu klonlayın veya dosyaları indirin**
 ```bash
-git clone <repository-url>
+git clone https://github.com/ismailpadem/news-categoryzer
 cd NLP_Final
 ```
 
