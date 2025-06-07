@@ -429,9 +429,9 @@ class TurkishNewsClassifier:
         
         print(f"Using device: {self.device}")
         if use_augmentation:
-            print(f"🔄 Data augmentation enabled (factor: {augmentation_factor})")
+            print(f" Data augmentation enabled (factor: {augmentation_factor})")
         else:
-            print("📊 Data augmentation disabled")
+            print(" Data augmentation disabled")
     
     def load_data(self, csv_path):
         """Load and explore the dataset"""
@@ -468,7 +468,7 @@ class TurkishNewsClassifier:
         
         # Apply data augmentation if enabled
         if self.use_augmentation:
-            print(f"🔄 Applying data augmentation (factor: {self.augmentation_factor})...")
+            print(f" Applying data augmentation (factor: {self.augmentation_factor})...")
             
             # Extract texts and labels for augmentation
             texts = self.df['lemmatized_text'].tolist()
@@ -490,10 +490,10 @@ class TurkishNewsClassifier:
             self.df = augmented_df
             
             new_size = len(self.df)
-            print(f"✅ Dataset augmented: {original_size} → {new_size} samples ({new_size/original_size:.1f}x increase)")
+            print(f"Dataset augmented: {original_size} → {new_size} samples ({new_size/original_size:.1f}x increase)")
             
             # Show category distribution after augmentation
-            print("📊 Augmented category distribution:")
+            print("Augmented category distribution:")
             print(self.df['category'].value_counts().to_string())
         
         # Build vocabulary and convert to sequences
@@ -710,7 +710,7 @@ class TurkishNewsClassifier:
             # Early stopping
             early_stopping(val_f1, self.model)
             if early_stopping.early_stop:
-                print(f"🛑 Early stopping at epoch {epoch+1}")
+                print(f" Early stopping at epoch {epoch+1}")
                 print(f"Best validation F1 score: {early_stopping.best_score:.4f}")
                 break
         
@@ -740,7 +740,7 @@ class TurkishNewsClassifier:
             'history': self.history
         }
         
-        print(f"\n✅ Training completed in {datetime.timedelta(seconds=int(total_training_time))}")
+        print(f"\n Training completed in {datetime.timedelta(seconds=int(total_training_time))}")
         print(f"Average epoch time: {np.mean(epoch_times):.2f} seconds")
     
     def evaluate(self):
@@ -893,7 +893,7 @@ class TurkishNewsClassifier:
         
         if save_plots:
             plt.savefig(f'{results_dir}/training_history.png', dpi=300, bbox_inches='tight')
-            print(f"📊 Training history plot saved to {results_dir}/training_history.png")
+            print(f" Training history plot saved to {results_dir}/training_history.png")
         
         plt.show()
     
@@ -913,7 +913,7 @@ class TurkishNewsClassifier:
         
         if save_plots:
             plt.savefig(f'{results_dir}/confusion_matrix.png', dpi=300, bbox_inches='tight')
-            print(f"📊 Confusion matrix plot saved to {results_dir}/confusion_matrix.png")
+            print(f" Confusion matrix plot saved to {results_dir}/confusion_matrix.png")
         
         plt.show()
     
@@ -945,7 +945,7 @@ class TurkishNewsClassifier:
         
         if save_plots:
             plt.savefig(f'{results_dir}/class_performance.png', dpi=300, bbox_inches='tight')
-            print(f"📊 Class performance plot saved to {results_dir}/class_performance.png")
+            print(f" Class performance plot saved to {results_dir}/class_performance.png")
         
         plt.show()
     
@@ -1070,9 +1070,9 @@ class TurkishNewsClassifier:
             
             with open(results_file, 'w', encoding='utf-8') as f:
                 json.dump(json_safe_results, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)
-            print(f"✅ Results JSON saved to {results_file}")
+            print(f" Results JSON saved to {results_file}")
         except Exception as e:
-            print(f"❌ Error saving JSON results: {str(e)}")
+            print(f" Error saving JSON results: {str(e)}")
             print("Attempting to save without problematic data...")
             # Create a minimal version without potentially problematic data
             minimal_results = {
@@ -1088,9 +1088,9 @@ class TurkishNewsClassifier:
             try:
                 with open(results_file, 'w', encoding='utf-8') as f:
                     json.dump(minimal_results, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)
-                print(f"✅ Minimal results JSON saved to {results_file}")
+                print(f" Minimal results JSON saved to {results_file}")
             except Exception as e2:
-                print(f"❌ Failed to save even minimal JSON: {str(e2)}")
+                print(f" Failed to save even minimal JSON: {str(e2)}")
                 print("Continuing without JSON save...")
         
         # Save training history as CSV
@@ -1138,7 +1138,7 @@ class TurkishNewsClassifier:
             f.write("=" * 80 + "\n\n")
             
             # Dataset Information
-            f.write("📊 DATASET INFORMATION\n")
+            f.write(" DATASET INFORMATION\n")
             f.write("-" * 40 + "\n")
             dataset_info = self.results['dataset_info']
             f.write(f"Dataset file: {dataset_info['csv_path']}\n")
@@ -1154,7 +1154,7 @@ class TurkishNewsClassifier:
             f.write(f"Preprocessing time: {dataset_info['preprocessing_time_seconds']:.2f} seconds\n\n")
             
             # Model Configuration
-            f.write("🧠 MODEL CONFIGURATION\n")
+            f.write(" MODEL CONFIGURATION\n")
             f.write("-" * 40 + "\n")
             model_config = self.results['model_config']
             f.write(f"Model type: Bidirectional LSTM\n")
@@ -1169,7 +1169,7 @@ class TurkishNewsClassifier:
             f.write(f"Device: {model_config['device']}\n\n")
             
             # Training Information
-            f.write("🏋️ TRAINING INFORMATION\n")
+            f.write(" TRAINING INFORMATION\n")
             f.write("-" * 40 + "\n")
             training_info = self.results['training_history']
             f.write(f"Training start: {self.results['training_start_time']}\n")
@@ -1182,7 +1182,7 @@ class TurkishNewsClassifier:
             f.write(f"Batch size: {model_config['batch_size']}\n\n")
             
             # Training Results
-            f.write("📈 TRAINING RESULTS\n")
+            f.write(" TRAINING RESULTS\n")
             f.write("-" * 40 + "\n")
             f.write(f"Best validation F1 score: {training_info['best_val_f1']:.4f}\n")
             f.write(f"Best validation accuracy: {training_info['best_val_acc']:.4f}\n")
@@ -1193,7 +1193,7 @@ class TurkishNewsClassifier:
             f.write(f"Final validation F1: {training_info['final_val_f1']:.4f}\n\n")
             
             # Test Results
-            f.write("🧪 TEST RESULTS\n")
+            f.write(" TEST RESULTS\n")
             f.write("-" * 40 + "\n")
             test_results = self.results['test_results']
             f.write(f"Test accuracy: {test_results['test_accuracy']:.4f} ({test_results['test_accuracy']*100:.2f}%)\n")
@@ -1205,7 +1205,7 @@ class TurkishNewsClassifier:
             f.write(f"Evaluation time: {test_results['evaluation_time_seconds']:.2f} seconds\n\n")
             
             # Overall Performance Summary
-            f.write("📋 OVERALL PERFORMANCE SUMMARY\n")
+            f.write(" OVERALL PERFORMANCE SUMMARY\n")
             f.write("-" * 40 + "\n")
             detailed_metrics = self.results['detailed_metrics']
             f.write(f"Macro average precision: {detailed_metrics['macro_avg']['precision']:.4f}\n")
@@ -1216,7 +1216,7 @@ class TurkishNewsClassifier:
             f.write(f"Weighted average F1-score: {detailed_metrics['weighted_avg']['f1_score']:.4f}\n\n")
             
             # Per-class Performance
-            f.write("📊 PER-CLASS PERFORMANCE\n")
+            f.write(" PER-CLASS PERFORMANCE\n")
             f.write("-" * 40 + "\n")
             f.write(f"{'Class':<15} {'Precision':<10} {'Recall':<10} {'F1-Score':<10} {'Support':<8}\n")
             f.write("-" * 55 + "\n")
@@ -1228,7 +1228,7 @@ class TurkishNewsClassifier:
             f.write("\n")
             
             # Training History Summary
-            f.write("📉 TRAINING HISTORY SUMMARY\n")
+            f.write(" TRAINING HISTORY SUMMARY\n")
             f.write("-" * 40 + "\n")
             history = training_info['history']
             f.write(f"Epoch-by-epoch performance:\n")
@@ -1246,11 +1246,11 @@ class TurkishNewsClassifier:
             f.write("Report generated on: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "\n")
             f.write("=" * 80 + "\n")
         
-        print(f"📋 Comprehensive report saved to {report_file}")
+        print(f" Comprehensive report saved to {report_file}")
     
     def save_all_results_and_plots(self, results_dir='results'):
         """Save everything: results, plots, and generate comprehensive report"""
-        print(f"\n💾 Saving comprehensive results to '{results_dir}' directory...")
+        print(f"\n Saving comprehensive results to '{results_dir}' directory...")
         
         # Save structured results
         results_path, timestamp = self.save_results(results_dir)
@@ -1265,9 +1265,9 @@ class TurkishNewsClassifier:
             self.plot_confusion_matrix(predictions, targets, save_plots=True, results_dir=results_dir)
             self.plot_class_performance(save_plots=True, results_dir=results_dir)
         
-        print(f"\n✅ All results saved successfully!")
-        print(f"📁 Results directory: {results_path}")
-        print(f"📄 Files saved:")
+        print(f"\n All results saved successfully!")
+        print(f" Results directory: {results_path}")
+        print(f" Files saved:")
         print(f"   - training_results_{timestamp}.json (Complete results)")
         print(f"   - training_history_{timestamp}.csv (Training metrics)")
         print(f"   - class_metrics_{timestamp}.csv (Per-class performance)")
@@ -1300,34 +1300,34 @@ def main():
     
     try:
         # Load and preprocess data
-        print("📊 Loading and preprocessing data...")
+        print(" Loading and preprocessing data...")
         classifier.load_data(csv_path)
         classifier.preprocess_data()
         classifier.split_data()
         
         # Create and train model
-        print("🧠 Creating and training model...")
+        print(" Creating and training model...")
         classifier.create_model()
         classifier.train(epochs=30, batch_size=32)
         
         # Evaluate model
-        print("📈 Evaluating model...")
+        print(" Evaluating model...")
         predictions, targets = classifier.evaluate()
         
         # Save comprehensive results and plots
-        print("💾 Saving comprehensive results and plots...")
+        print(" Saving comprehensive results and plots...")
         results_path = classifier.save_all_results_and_plots()
         
         # Save model with explicit confirmation
-        print("\n💾 Saving trained model...")
+        print("\n Saving trained model...")
         try:
             classifier.save_model('turkish_news_model.pth', 'vocabulary.pkl')
-            print("✅ Model and vocabulary saved successfully!")
+            print(" Model and vocabulary saved successfully!")
             print("   - Model file: turkish_news_model.pth")
             print("   - Vocabulary file: vocabulary.pkl")
             print("   - You can now use these files with test_model.py")
         except Exception as save_error:
-            print(f"❌ Error saving model: {str(save_error)}")
+            print(f" Error saving model: {str(save_error)}")
             # Try alternative save paths
             try:
                 import datetime
@@ -1335,41 +1335,41 @@ def main():
                 alt_model_path = f'model_backup_{timestamp}.pth'
                 alt_vocab_path = f'vocab_backup_{timestamp}.pkl'
                 classifier.save_model(alt_model_path, alt_vocab_path)
-                print(f"✅ Model saved with backup names:")
+                print(f" Model saved with backup names:")
                 print(f"   - Model file: {alt_model_path}")
                 print(f"   - Vocabulary file: {alt_vocab_path}")
             except Exception as backup_error:
-                print(f"❌ Failed to save backup as well: {str(backup_error)}")
+                print(f" Failed to save backup as well: {str(backup_error)}")
         
         # Example prediction
-        print("\n🧪 Testing with example prediction...")
+        print("\n Testing with example prediction...")
         sample_text = "Türkiye ekonomisi büyümeye devam ediyor."
         try:
             predicted_class, confidence = classifier.predict(sample_text)
-            print(f"📝 Example prediction:")
+            print(f" Example prediction:")
             print(f"   Text: '{sample_text}'")
             print(f"   Predicted category: {predicted_class}")
             print(f"   Confidence: {confidence:.4f} ({confidence*100:.2f}%)")
         except Exception as pred_error:
-            print(f"❌ Error in example prediction: {str(pred_error)}")
+            print(f" Error in example prediction: {str(pred_error)}")
         
         # Display comprehensive results summary
-        print(f"\n🎉 Training completed successfully!")
-        print(f"📊 FINAL RESULTS SUMMARY:")
+        print(f"\n Training completed successfully!")
+        print(f" FINAL RESULTS SUMMARY:")
         print(f"   - Test Accuracy: {classifier.results['test_results']['test_accuracy']:.4f} ({classifier.results['test_results']['test_accuracy']*100:.2f}%)")
         print(f"   - Test F1-Score (Weighted): {classifier.results['test_results']['test_f1_weighted']:.4f}")
         print(f"   - Training Time: {classifier.results['training_history']['total_training_time_formatted']}")
         print(f"   - Epochs Trained: {classifier.results['training_history']['total_epochs_trained']}")
         print(f"   - Model Parameters: {classifier.results['model_config']['total_parameters']:,}")
         print(f"   - Final Dataset Size: {classifier.results['dataset_info']['final_size']:,} samples")
-        print(f"\n📁 Results saved to: {results_path}")
+        print(f"\n  Results saved to: {results_path}")
         print("You can now test the model by running: python test_model.py")
         
     except FileNotFoundError:
-        print(f"❌ Error: Could not find the dataset file '{csv_path}'")
+        print(f" Error: Could not find the dataset file '{csv_path}'")
         print("Please make sure the Turkish news dataset is available.")
     except Exception as e:
-        print(f"❌ An error occurred during training: {str(e)}")
+        print(f" An error occurred during training: {str(e)}")
         print("Training failed. Please check your data and try again.")
 
 
