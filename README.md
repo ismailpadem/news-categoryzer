@@ -1,5 +1,10 @@
 # Türkçe Haber Kategorisi Sınıflandırma Projesi
 
+## Hazırlayanlar
+- İsmail PADEM 2020717035
+- Mustafa Akipek 20217170030
+- Yaren Akpınar 20217170013
+
 ## Proje Amacı
 
 Bu projede, Türkçe haber metinlerini otomatik olarak kategorilere sınıflandıran gelişmiş bir makine öğrenmesi sistemi geliştirdik. Bidirectional LSTM (BiLSTM) mimarisi kullanarak doğal dil işleme tekniklerini uygulayarak, haberleri yedi farklı kategoriye (dünya, ekonomi, kültür, sağlık, siyaset, spor, teknoloji) otomatik olarak sınıflandırabilen bir model oluşturduk.
@@ -35,11 +40,10 @@ Bu projede, Türkçe haber metinlerini otomatik olarak kategorilere sınıfland�
 - **Kayıp Fonksiyonu**: CrossEntropyLoss
 
 ### Test Ortamı ve Donanım
-- **İşletim Sistemi**: Windows 10
-- **Python Sürümü**: 3.8+
-- **GPU Desteği**: CUDA destekli GPU (mevcut ise)
-- **RAM**: Minimum 8GB önerilir
-- **Depolama**: Minimum 2GB boş alan
+- **İşletim Sistemi**: Windows 11
+- **Python Sürümü**: 3.12
+- **GPU Desteği**: CUDA destekli GPU (Nvidia RTX 4060 Mobile 140W)
+- **RAM**: 16GB
 
 ### Proje Yapısı
 ```
