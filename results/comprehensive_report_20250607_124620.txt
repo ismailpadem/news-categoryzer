@@ -1,0 +1,112 @@
+================================================================================
+TURKISH NEWS CLASSIFICATION - COMPREHENSIVE RESULTS REPORT
+================================================================================
+
+📊 DATASET INFORMATION
+----------------------------------------
+Dataset file: data/datas.csv
+Original samples: 4,900
+Final samples (after augmentation): 7,162
+Augmentation factor: 3.0
+Training samples: 5,729
+Test samples: 1,433
+Classes: 7
+Class names: siyaset , dunya , ekonomi , kultur , saglik , spor , teknoloji 
+Vocabulary size: 10,000
+Max sequence length: 200
+Preprocessing time: 32.40 seconds
+
+🧠 MODEL CONFIGURATION
+----------------------------------------
+Model type: Bidirectional LSTM
+Embedding dimension: 1024
+Hidden dimension: 1024
+Dropout rate: 0.5
+Learning rate: 0.001
+Total parameters: 27,571,207
+Trainable parameters: 27,571,207
+Optimizer: Adam
+Loss function: CrossEntropyLoss
+Device: cuda
+
+🏋️ TRAINING INFORMATION
+----------------------------------------
+Training start: 2025-06-07T12:40:32.292041
+Training end: 2025-06-07T12:46:18.275993
+Total training time: 0:05:45
+Planned epochs: 30
+Actual epochs trained: 20
+Early stopping: Yes
+Average time per epoch: 17.30 seconds
+Batch size: 32
+
+📈 TRAINING RESULTS
+----------------------------------------
+Best validation F1 score: 0.9216
+Best validation accuracy: 0.9213
+Final training loss: 0.0032
+Final training accuracy: 0.9996
+Final validation loss: 0.9586
+Final validation accuracy: 0.9021
+Final validation F1: 0.9024
+
+🧪 TEST RESULTS
+----------------------------------------
+Test accuracy: 0.9135 (91.35%)
+Test F1-score (weighted): 0.9135
+Test F1-score (macro): 0.9134
+Test F1-score (micro): 0.9135
+Correct predictions: 1,309
+Incorrect predictions: 124
+Evaluation time: 1.70 seconds
+
+📋 OVERALL PERFORMANCE SUMMARY
+----------------------------------------
+Macro average precision: 0.9136
+Macro average recall: 0.9134
+Macro average F1-score: 0.9134
+Weighted average precision: 0.9136
+Weighted average recall: 0.9135
+Weighted average F1-score: 0.9135
+
+📊 PER-CLASS PERFORMANCE
+----------------------------------------
+Class           Precision  Recall     F1-Score   Support 
+-------------------------------------------------------
+dunya           0.8585     0.8756     0.8670     201     
+ekonomi         0.8476     0.8558     0.8517     208     
+kultur          0.9400     0.9353     0.9377     201     
+saglik          0.9381     0.9610     0.9494     205     
+siyaset         0.9239     0.8966     0.9100     203     
+spor            0.9761     0.9808     0.9784     208     
+teknoloji       0.9109     0.8889     0.8998     207     
+
+📉 TRAINING HISTORY SUMMARY
+----------------------------------------
+Epoch-by-epoch performance:
+Epoch  Train Loss   Train Acc    Val Loss     Val Acc      Val F1       Time(s) 
+--------------------------------------------------------------------------------
+1      1.4722       0.4982       0.9357       0.7185       0.7186       17.43   
+2      0.7063       0.8005       0.7198       0.7902       0.7913       16.97   
+3      0.3326       0.9155       0.5519       0.8497       0.8501       17.09   
+4      0.1518       0.9666       0.4467       0.8829       0.8816       16.92   
+5      0.0775       0.9841       0.5177       0.8846       0.8854       17.09   
+6      0.0459       0.9909       0.5134       0.8969       0.8965       16.94   
+7      0.0456       0.9909       0.5766       0.8811       0.8810       17.12   
+8      0.0337       0.9932       0.6082       0.8916       0.8916       17.14   
+9      0.0255       0.9959       0.5703       0.9021       0.9023       17.11   
+10     0.0185       0.9977       0.5442       0.9056       0.9063       16.93   
+11     0.0118       0.9986       0.6122       0.9126       0.9135       17.13   
+12     0.0085       0.9986       0.6307       0.9108       0.9114       17.05   
+13     0.0041       0.9996       0.6648       0.9143       0.9149       17.23   
+14     0.0033       0.9996       0.7018       0.9126       0.9132       17.47   
+15     0.0042       0.9992       0.7162       0.9178       0.9183       17.62   
+16     0.0040       0.9992       0.7084       0.9196       0.9199       17.59   
+17     0.0031       0.9998       0.7385       0.9213       0.9216       17.85   
+18     0.0031       0.9994       0.7995       0.9108       0.9114       17.69   
+19     0.0020       0.9998       0.7891       0.9178       0.9181       17.78   
+20     0.0032       0.9996       0.9586       0.9021       0.9024       17.80   
+
+================================================================================
+Report generated on: 2025-06-07 12:46:20
+================================================================================
